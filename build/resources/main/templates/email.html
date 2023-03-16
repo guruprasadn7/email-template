@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Approval Request Approved (Conditional)</title>
+</head>
+<body>
+<p>Dear <span th:text="${email.user.firstName}"></span>,</p>
+
+<p>We are pleased to inform you that your request for approval has been approved on a conditional basis. Please review the details below:</p>
+
+<p>
+    Request ID: <span th:text="${email.request.id}"></span><br>
+    Request Description: <span th:text="${email.request.description}"></span><br>
+    Approval Date: <span th:text="${#dates.format(email.request.approvalDate, 'dd MMM yyyy')}"></span><br>
+    Approval Status: <span th:text="${email.request.approvalStatus}"></span><br>
+    Approval Comments: <span th:text="${email.request.approvalComments}"></span><br>
+</p>
+
+<p>
+    Please note that your request has been approved on a conditional basis, which means that there are certain conditions that you must meet before it can be fully approved. These conditions are as follows:
+</p>
+
+<ul>
+    <li><span th:text="${email.request.conditions[0].condition}"></span></li>
+    <li><span th:text="${email.request.conditions[1].condition}"></span></li>
+    <li><span th:text="${email.request.conditions[2].condition}"></span></li>
+</ul>
+
+<p>
+    If you have any questions or concerns about the conditions, please do not hesitate to contact us. We look forward to hearing from you soon.
+</p>
+
+<p>
+    Best regards,<br>
+    The Approval Team
+</p>
+</body>
+</html>
